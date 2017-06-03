@@ -65,7 +65,23 @@ void Graph::BFS(int start){
 }
 
 void Graph::DFS(int start){
-    cout << "dfs\n";
+    stack<int> s;
+    set<int> vis;
+    s.push(start);
+    vis.insert(start);
+    while(!s.empty()){
+        start = s.top();
+        cout << start << " ";
+        s.pop();
+        for(list<int>::iterator it=graph[start].begin(); it!=graph[start].end(); it++){
+            if(vis.find(*it)==vis.end()){
+                s.push(*it);
+                vis.insert(*it);
+            }
+        }
+    }
+    cout << endl;
+    /*cout << "dfs\n";
     stack<int> s;
     set<int> visited;
     s.push(start);
@@ -87,7 +103,7 @@ void Graph::DFS(int start){
         }
         s.pop();
     }
-    cout << endl;
+    cout << endl;*/
 }
 
 int main(){
