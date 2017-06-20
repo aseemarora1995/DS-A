@@ -28,22 +28,17 @@ void KMP::matchSubstring(){
             return;
         }
         if(j==pattern.length()){
-            cout << "match found\n";
-            //cout << "match found at index: " << index;
+            cout << "match found at index: " << i-j;
             return;
         }
         if(text[i] == pattern[j]){
-            //cout << "one\n";
             i++; j++;
         }
         else{
             if(j){
-                //cout << "two\n";
                 j = prefix[j-1];
-                //index = i;
             }
             else{
-                //cout << "three\n";
                 i++;
             }
         }
